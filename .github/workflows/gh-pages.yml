@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: npm ci && npm run build
         env:
-          PUBLIC_URL: /8puzzle-react
+          PUBLIC_URL: /SlidePuzzles-react
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

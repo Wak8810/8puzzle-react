@@ -5,7 +5,7 @@ const clearBoard = [1, 2, 3, 4, 5, 6, 7, 8, 0];
 const clearBoardStr = clearBoard.join();
 const ExampleBoard = [2, 3, 6, 4, 1, 5, 7, 8, 0];
 
-const Board: React.FC = () => {
+const Board8: React.FC = () => {
     const [tiles, setTiles] = useState<(number | null)[]>(ExampleBoard);
     const [isCleared, setIsCleared] = useState<boolean>(false);
     const shuffleBoard = () => {
@@ -79,4 +79,4 @@ const Board: React.FC = () => {
     );
 };
 
-export default Board;
+export default Board8;
