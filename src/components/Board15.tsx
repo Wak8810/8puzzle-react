@@ -51,7 +51,7 @@ const Board15: React.FC = () => {
 
     return (
         <div className="flex-grow flex flex-col items-center justify-center p-8 space-y-4">
-            <div className="grid grid-cols-4 gap-1 w-52">
+            <div className="grid grid-cols-4">
                 {tiles.map((tile, index) => (
                     <div
                     key={index}
