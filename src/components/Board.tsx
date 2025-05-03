@@ -20,6 +20,12 @@ const Board: React.FC = () => {
     useEffect(() =>{
         const isCleared = (tiles.join() === clearBoardStr);
         setIsCleared(isCleared);
+        if (isCleared) {
+            //非同期で、ボードの見た目が完成してからアラートを出すように
+            setTimeout(() => {
+                alert('クリアしました！再度遊ぶ時は、リセットをクリック。');
+            }, 0);
+        }
     }, [tiles]);
 
     const tileSwap = (index: number) => {
