@@ -8,10 +8,14 @@ const ExampleBoard = [2, 3, 6, 4, 1, 5, 7, 8, 0];
 const Board: React.FC = () => {
     const [tiles, setTiles] = useState<(number | null)[]>(ExampleBoard);
     const [isCleared, setIsCleared] = useState<boolean>(false);
-    useEffect(() => {
+    const shuffleBoard = () => {
         const newBoard = generateSolvableBoard();
         setTiles(newBoard);
-    },[]);
+    };
+
+    useEffect(() => {
+        shuffleBoard();
+    }, []);
 
     useEffect(() =>{
         const isCleared = (tiles.join() === clearBoardStr);
@@ -45,7 +49,7 @@ const Board: React.FC = () => {
     };
 
     return (
-        <div className="flex-grow flex justify-center items-center p-8">
+        <div className="flex-grow flex flex-col items-center justify-center p-8 space-y-4">
             <div className="grid grid-cols-3 gap-2 w-48">
                 {tiles.map((tile, index) => (
                     <div
@@ -53,10 +57,18 @@ const Board: React.FC = () => {
                     onClick={() => tile !== 0 && tileSwap(index)}
                     className="w-16 h-16 flex items-center justify-center border text-xl font-bold bg-gray-200 cursor-pointer select-none"
                     >
-                    {tile !== 0 ? tile : ''}
+                        {tile !== 0 ? tile : ''}
                     </div>
                 ))}
             </div>
+
+            {/* 👇 Boardの下に配置 */}
+            <button
+            onClick={shuffleBoard}
+            className="bg-gray-300 px-4 py-2 rounded shadow"
+            >
+            リセット
+            </button>
         </div>
     );
 };
