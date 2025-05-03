@@ -1,4 +1,5 @@
-import React, { useState } from 'react';import Header from './components/Header';
+import React, { useState } from 'react';
+import Header from './components/Header';
 import Footer from './components/Footer';
 import Board8 from './components/Board8';
 import Board15 from './components/Board15';
